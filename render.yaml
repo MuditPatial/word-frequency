@@ -1,0 +1,13 @@
+# render.yaml — Render Blueprint (optional: auto-deploy config)
+services:
+  - type: web
+    name: wordlens
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn run:app
+    envVars:
+      - key: FLASK_DEBUG
+        value: false
+      - key: SECRET_KEY
+        generateValue: true
+    plan: free
