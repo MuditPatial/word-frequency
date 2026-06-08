@@ -51,8 +51,8 @@ Upload → Analyze → Explore
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/YOUR_USERNAME/wordlens.git
-cd wordlens
+git clone https://github.com/YOUR_USERNAME/word-frequency.git
+cd word-frequency
 ```
 
 ### 2. Install dependencies
