@@ -8,44 +8,29 @@ import unicodedata
 # -----------------------------------------------------------------------
 # Comprehensive English stopword list (300+ words)
 # -----------------------------------------------------------------------
+# True grammatical function words only — articles, prepositions, conjunctions,
+# pure auxiliary verbs. Personal pronouns, negations, and content words
+# are intentionally kept so users see accurate counts in their charts.
 STOPWORDS = {
-    "a", "about", "above", "after", "again", "against", "all", "am", "an",
-    "and", "any", "are", "aren't", "as", "at", "be", "because", "been",
-    "before", "being", "below", "between", "both", "but", "by", "can't",
-    "cannot", "could", "couldn't", "did", "didn't", "do", "does", "doesn't",
-    "doing", "don't", "down", "during", "each", "few", "for", "from",
-    "further", "get", "got", "had", "hadn't", "has", "hasn't", "have",
-    "haven't", "having", "he", "he'd", "he'll", "he's", "her", "here",
-    "here's", "hers", "herself", "him", "himself", "his", "how", "how's",
-    "if", "in", "into", "is", "isn't",
-    "it", "it's", "its", "itself", "let's", "me", "more", "most", "mustn't",
-    "my", "myself", "no", "nor", "not", "of", "off", "on", "once", "only",
-    "or", "other", "ought", "our", "ours", "ourselves", "out", "over", "own",
-    "same", "shan't", "she", "she'd", "she'll", "she's", "should",
-    "shouldn't", "so", "some", "such", "than", "that", "that's", "the",
-    "their", "theirs", "them", "themselves", "then", "there", "there's",
-    "these", "they", "they'd", "they'll", "they're", "they've", "this",
-    "those", "through", "to", "too", "under", "until", "up", "very", "was",
-    "wasn't", "we", "we'd", "we'll", "we're", "we've", "were", "weren't",
-    "what", "what's", "when", "when's", "where", "where's", "which", "while",
-    "who", "who's", "whom", "why", "why's", "will", "with", "won't",
-    "would", "wouldn't",
-    # additional common filler
-    "also", "just", "like", "even", "well", "back", "still", "way", "take",
-    "every", "good", "new", "first", "last", "long", "great", "little",
-    "own", "right", "big", "high", "different", "small", "large", "next",
-    "early", "young", "important", "public", "private", "real", "best",
-    "free", "sure", "know", "think", "go", "come", "see", "look", "want",
-    "give", "use", "find", "tell", "ask", "seem", "feel", "try", "leave",
-    "call", "keep", "let", "begin", "show", "hear", "play", "run", "move",
-    "live", "believe", "hold", "bring", "happen", "write", "provide",
-    "sit", "stand", "lose", "pay", "meet", "include", "continue", "set",
-    "change", "lead", "understand", "watch", "follow", "stop",
-    "create", "speak", "read", "spend", "grow", "open", "walk", "win",
-    "offer", "remember", "love", "consider", "appear", "buy", "wait",
-    "serve", "die", "send", "expect", "build", "stay", "fall", "cut",
-    "reach", "kill", "remain", "suggest", "raise", "pass", "sell", "require",
-    "report", "decide", "pull", "s", "t", "re", "ve", "ll", "d", "m",
+    # Articles
+    "a", "an", "the",
+    # Prepositions
+    "about", "above", "after", "against", "at", "before", "below",
+    "between", "by", "during", "for", "from", "in", "into", "of",
+    "off", "on", "out", "over", "through", "to", "under", "until",
+    "up", "with", "within", "without",
+    # Coordinating & subordinating conjunctions
+    "and", "as", "because", "both", "but", "down", "either", "except",
+    "if", "nor", "once", "or", "since", "so", "than", "that", "though",
+    "unless", "until", "when", "where", "which", "while", "yet",
+    # Pure auxiliary / linking verbs
+    "be", "been", "being",
+    "can", "cannot", "could", "did", "do", "does", "doing", "done",
+    "had", "has", "have", "having",
+    "is", "may", "might", "must", "shall", "should", "was", "were",
+    "will", "would",
+    # Common contractions (split artefacts from tokenizer)
+    "s", "t", "re", "ve", "ll", "d", "m", "n",
 }
 
 

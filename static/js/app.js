@@ -32,6 +32,7 @@ const loaderMsg      = document.getElementById('loader-msg');
 const toast          = document.getElementById('toast');
 
 const statTotal      = document.getElementById('stat-total');
+const statFiltered   = document.getElementById('stat-filtered');
 const statUnique     = document.getElementById('stat-unique');
 const statSentences  = document.getElementById('stat-sentences');
 const statReading    = document.getElementById('stat-reading');
@@ -213,6 +214,7 @@ async function runAnalysis() {
 function renderResults(data) {
   // Stats
   statTotal.textContent      = fmtNum(data.total_words);
+  statFiltered.textContent   = fmtNum(data.filtered_words);
   statUnique.textContent     = fmtNum(data.unique_words);
   statSentences.textContent  = fmtNum(data.sentence_count);
   statReading.textContent    = fmtTime(data.reading_time_sec);
