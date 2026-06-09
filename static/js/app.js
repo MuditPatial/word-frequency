@@ -239,11 +239,13 @@ function renderBarChart(words) {
   const counts  = words.map(w => w.count);
   const maxC    = Math.max(...counts);
 
-  // gradient color by rank
+  // warm gradient by rank — terracotta to amber
   const colors = counts.map((c) => {
     const ratio = c / maxC;
-    const h = Math.round(220 + ratio * 40);
-    return `hsl(${h}, 80%, ${50 + ratio * 12}%)`;
+    const h = Math.round(18 + ratio * 15);   // 18° (terracotta) → 33° (amber)
+    const s = Math.round(65 + ratio * 10);
+    const l = Math.round(48 + ratio * 8);
+    return `hsl(${h}, ${s}%, ${l}%)`;
   });
 
   if (barChartInstance) barChartInstance.destroy();
@@ -268,11 +270,12 @@ function renderBarChart(words) {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#121828',
-          borderColor: 'rgba(99,102,241,0.3)',
+          backgroundColor: '#fff',
+          borderColor: 'rgba(192, 98, 42, 0.25)',
           borderWidth: 1,
-          titleColor: '#e2e8f0',
-          bodyColor: '#8892a4',
+          titleColor: '#2c1e0f',
+          bodyColor: '#6b4f35',
+          padding: 10,
           callbacks: {
             label: ctx => ` ${ctx.parsed.x.toLocaleString()} occurrences (${words[ctx.dataIndex].percentage}%)`,
           },
@@ -280,12 +283,12 @@ function renderBarChart(words) {
       },
       scales: {
         x: {
-          grid: { color: 'rgba(99,102,241,0.07)' },
-          ticks: { color: '#4a5568', font: { family: 'JetBrains Mono', size: 11 } },
+          grid: { color: 'rgba(140, 100, 50, 0.08)' },
+          ticks: { color: '#a08060', font: { family: 'DM Sans', size: 11 } },
         },
         y: {
           grid: { display: false },
-          ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 12 } },
+          ticks: { color: '#6b4f35', font: { family: 'Lora', size: 13 } },
         },
       },
     },
@@ -318,8 +321,8 @@ function renderLetterChart(letters) {
       datasets: [{
         label: 'Frequency %',
         data: pcts,
-        backgroundColor: labels.map((_, i) => `hsl(${190 + i * 6}, 70%, 55%)`),
-        borderRadius: 4,
+        backgroundColor: labels.map((_, i) => `hsl(${18 + i * 4}, ${60 - i}%, ${52 + i * 0.5}%)`),
+        borderRadius: 5,
         borderSkipped: false,
       }],
     },
@@ -329,14 +332,18 @@ function renderLetterChart(letters) {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#121828', borderColor: 'rgba(6,182,212,0.3)', borderWidth: 1,
-          titleColor: '#e2e8f0', bodyColor: '#8892a4',
+          backgroundColor: '#fff',
+          borderColor: 'rgba(192, 98, 42, 0.25)',
+          borderWidth: 1,
+          titleColor: '#2c1e0f',
+          bodyColor: '#6b4f35',
+          padding: 10,
           callbacks: { label: ctx => ` ${ctx.parsed.y.toFixed(2)}% of all letters` },
         },
       },
       scales: {
-        x: { grid: { display: false }, ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 12 } } },
-        y: { grid: { color: 'rgba(6,182,212,0.07)' }, ticks: { color: '#4a5568', font: { size: 11 }, callback: v => v + '%' } },
+        x: { grid: { display: false }, ticks: { color: '#6b4f35', font: { family: 'DM Sans', size: 12 } } },
+        y: { grid: { color: 'rgba(140, 100, 50, 0.08)' }, ticks: { color: '#a08060', font: { size: 11 }, callback: v => v + '%' } },
       },
     },
   });
