@@ -6,6 +6,29 @@ A production-ready, full-stack word frequency analyzer built with **Python & Fla
 
 ---
 
+## 📝 Changelog
+
+### v1.1 — UI Polish (latest)
+- 🎞️ **Animated hero orbs** — ambient background elements now drift with a smooth 12-second loop
+- ✨ **Enhanced card hover glow** — cards lift with an indigo glow shadow on hover
+- 🎨 **Stat card shimmer overlay** — subtle gradient overlay reveals on hover
+- 💫 **Animated progress bars** — word frequency bars use a shifting three-stop gradient
+- 🔗 **GitHub link in header** — quick access to source code from the nav
+- 🏷️ **Icon-prefixed tabs** — Bar Chart / Letter Freq / Word Table tabs now include emoji icons
+- 📦 **Footer with tech badges** — Flask, Chart.js, pdfplumber, python-docx, MIT badges at the bottom
+- 💡 **Drop-zone drag-over ring** — 4px focus ring + scale pulse on active drag state
+- ⚡ **Smoother transitions** — card transforms use `cubic-bezier` easing throughout
+
+### v1.0 — Initial Release
+- Full-stack word frequency analyzer with Flask backend
+- PDF, DOCX, TXT upload + drag & drop
+- Interactive bar chart + letter frequency chart + word table
+- Word search with context snippets
+- JSON / CSV export
+- Pre-loaded sample texts
+
+---
+
 ## ✨ Features
 
 | Feature | Description |
