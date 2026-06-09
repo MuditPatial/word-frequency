@@ -64,7 +64,7 @@ class WordFrequencyAnalyzer:
 
         # --- frequency counts ---
         counter = Counter(tokens)
-        unique_words = len(counter)
+        unique_words = len(counter)          # unique among *filtered* tokens (matches bar chart)
         avg_word_length = (
             round(sum(len(w) for w in tokens) / filtered_count, 2)
             if filtered_count
